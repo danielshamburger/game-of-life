@@ -36,7 +36,7 @@ void print_grid(int x, int y, char** grid){
 	
 	// row loop
 	for (int row = 0; row < x; row++) {
-
+                printf("\n");
 		// col loop
 		for (int col = 0; col < y; col++) {
 			printf("%c", grid[row][col]);
