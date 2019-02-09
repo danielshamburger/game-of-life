@@ -37,17 +37,16 @@ char** get_grid(int x, int y){
  * provided by grid
  */
 void print_grid(int x, int y, char** grid){
-
 	printf("\n");
-	
 	// row loop
 	for (int row = 0; row < x; row++) {
                 printf("\n");
 		// col loop
 		for (int col = 0; col < y; col++) {
-			printf("%c", grid[row][col]);
+                        if( grid[row][col] == 1 ) ? printf("X") : printf(" ");
 		}
 	}
+        printf("\n");
 }
 
 /*
