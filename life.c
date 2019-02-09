@@ -95,6 +95,9 @@ char** mutate(int x, int y, char** grid){
                 free(grid[i]);
         }
         free(grid);
+
+        // return new grid
+        return new_grid;
 }
 
 /* get_neighbors is a helper method that returns
