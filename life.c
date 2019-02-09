@@ -50,7 +50,39 @@ void print_grid(int x, int y, char** grid){
  * is returned.
  */
 char** mutate(int x, int y, char** grid){
+        int neighbors;
+        char** new_grid = get_grid(x, y);
 
+        // row loop
+        for (int row = 0; row < x; row++) {
+                // col loop
+                for (int col = 0; col < y; col++) {
+                        neighbors = get_neighbors(row, col, x, y, grid);
+                        // "living" cell
+                        if ( grid[row][col] == 1 ) {
+                                // less than two neighbors - dies
+                                if ( neighbors < 2 ) {
+                                        new_grid[row][col] = 0;
+                                }
+                                // 2 or 3 neighbors - lives
+                                if ( neighbors == 2 || neighbors == 3 ) {
+                                        new_grid[row][col] = 1;
+                                }
+                                // more than 3 neighbors - dies
+                                if ( neighbors > 3 ) {
+                                        new_grid[row][col] = 0;
+                                }
+                        }
+                        // "dead" cell
+                        else {
+                                // more than 3 neighbors - becomes alive
+                                if ( neighbors > 3 ) {
+                                        new_grid[row][col] = 1;
+                                }
+                        }
+
+                }
+        }
 }
 
 /* get_neighbors is a helper method that returns
