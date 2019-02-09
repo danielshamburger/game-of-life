@@ -43,7 +43,10 @@ void print_grid(int x, int y, char** grid){
                 printf("\n");
 		// col loop
 		for (int col = 0; col < y; col++) {
-                        if( grid[row][col] == 1 ) ? printf("X") : printf(" ");
+                        if( grid[row][col] == 1 ) 
+                                printf("X");
+                        else 
+                                printf(" ");
 		}
 	}
         printf("\n");
