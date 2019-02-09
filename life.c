@@ -9,17 +9,23 @@
 char** get_grid(int x, int y){
 
 	// create memory for height
+        // https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/
 	char** grid = (char**) malloc(x * sizeof(char*));
 
 	// check if all memory is consumed
 	if (grid == NULL) {
-		fprintf(stderr, "failed to allocate memory.\n");
+		fprintf(stderr, "Failed to allocate memory.\n");
         	exit(-1);
 	}
 
 	// create memory for width
-	for (int i = 0; i < y; y++) {
+	for (int i = 0; i < x; i++) {
 		grid[i] = (char*) malloc(y * sizeof(char));
+                // check if all memory is consumed
+                if (grid[i] == NULL) {
+                        fprintf(stderr, "Failed to allocate memory.\n");
+                        exit(-1);
+                }
 	}
 
 	return grid;
@@ -83,6 +89,12 @@ char** mutate(int x, int y, char** grid){
 
                 }
         }
+
+        // free the memory of the "old" grid
+        for (int i = 0; i < x; i++) {
+                free(grid[i]);
+        }
+        free(grid);
 }
 
 /* get_neighbors is a helper method that returns
