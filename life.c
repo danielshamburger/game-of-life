@@ -125,7 +125,7 @@ int get_neighbors(int i, int j, int x, int y, char** grid){
 	}	
 
 	// top right corner
-	else if (i == 0 && j == y) {
+	else if (i == 0 && j == (y - 1) ) {
 		
 		// west
 		if (grid[i][j-1] == 1) {
@@ -142,7 +142,7 @@ int get_neighbors(int i, int j, int x, int y, char** grid){
         }
 
 	// bottom left corner
-	else if (i == x && j == 0) {
+	else if (i == (x-1) && j == 0) {
 		
 		// north
 		if (grid[i-1][j] == 1) {
@@ -159,7 +159,7 @@ int get_neighbors(int i, int j, int x, int y, char** grid){
         }
 
 	// bottom right corner
-	else if (i == x && j == y) {
+	else if (i == (x-1) && j == (y - 1)  ) {
 		
 		// north
                 if (grid[i-1][j] == 1) {
@@ -201,7 +201,7 @@ int get_neighbors(int i, int j, int x, int y, char** grid){
         }
 
 	// bottom
-	else if (i == x) {
+	else if (i == (x - 1)) {
 		
 		// west
 		if (grid[i][j-1] == 1) {
@@ -251,7 +251,7 @@ int get_neighbors(int i, int j, int x, int y, char** grid){
         }
 
 	// right
-	else if (j == y) {
+	else if (j == (y - 1)) {
 		
 		// north
 		if (grid[i-1][j] == 1) {
