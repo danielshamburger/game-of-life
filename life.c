@@ -37,17 +37,16 @@ char** get_grid(int x, int y){
  * provided by grid
  */
 void print_grid(int x, int y, char** grid){
-	printf("\n");
 	// row loop
 	for (int row = 0; row < x; row++) {
-                printf("\n");
 		// col loop
 		for (int col = 0; col < y; col++) {
                         if( grid[row][col] == 1 ) 
-                                printf("X");
+                                printf("X ");
                         else 
-                                printf(" ");
+                                printf("  ");
 		}
+                printf("\n");
 	}
         printf("\n");
 }
@@ -73,18 +72,18 @@ char** mutate(int x, int y, char** grid){
                                         new_grid[row][col] = 0;
                                 }
                                 // 2 or 3 neighbors - lives
-                                if ( neighbors == 2 || neighbors == 3 ) {
+                                else if ( neighbors == 2 || neighbors == 3 ) {
                                         new_grid[row][col] = 1;
                                 }
                                 // more than 3 neighbors - dies
-                                if ( neighbors > 3 ) {
+                                else if ( neighbors > 3 ) {
                                         new_grid[row][col] = 0;
                                 }
                         }
                         // "dead" cell
-                        else {
+                        else if ( grid[row][col] == 0 ) {
                                 // more than 3 neighbors - becomes alive
-                                if ( neighbors > 3 ) {
+                                if ( neighbors == 3 ) {
                                         new_grid[row][col] = 1;
                                 }
                         }
