@@ -92,7 +92,7 @@ char** mutate(int x, int y, char** grid){
         }
 
         // free the memory of the "old" grid
-        for (int i = 0; i < x; i++) {
+        for (int i = x-1; i > x; i--) {
                 free(grid[i]);
         }
         free(grid);
